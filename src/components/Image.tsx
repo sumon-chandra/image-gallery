@@ -1,23 +1,36 @@
 import { FC } from "react"
 interface ImageProps {
-    image: string;
+    image: { img: string, id: number };
     order: number;
+    onToggle: (id: number) => void;
+    selectedImages: number[]
 }
-const Image: FC<ImageProps> = ({ image, order }) => {
+const Image: FC<ImageProps> = ({ image, order, onToggle, selectedImages }) => {
     return (
-        <div className={`w-full border-2 rounded-md 
-        ${order === 1 ? "row-span-2 col-span-2"
-                : image === "" ? " border-4 border-gray-400 border-dotted"
-                    : "row-span-1"} items-start`}>
+        <div className={`border-2 relative flex items-center justify-center rounded-md ${order === 1 ? "row-span-2 col-span-2" : image.img === "" ? " border-4 border-gray-400 border-dotted" : "row-span-1"}`}>
             {
-                image ? (
-                    <img
-                        src={image}
-                        alt="Product Image"
-                    />
+                image.img ? (
+                    <div className="cursor-pointer">
+                        <img
+                            src={image.img}
+                            alt="Product Image"
+                            className="h-full rounded-md"
+                        />
+                        <div className={`absolute z-10 top-0 left-0 w-full h-full transition-opacity bg-[#00000071] opacity-0 rounded-md
+                        ${selectedImages.includes(image.id) ? "opacity-100" : "opacity-0"} 
+                        hover:opacity-100`}
+                        >
+                            <input
+                                type="checkbox"
+                                onChange={() => onToggle(image.id)}
+                                checked={selectedImages.includes(image.id)}
+                                className="absolute z-50 w-5 h-5 opacity-100 cursor-pointer top-2 left-2"
+                            />
+                        </div>
+                    </div>
                 ) : (
-                    <div className="relative top-14">
-                        <span className="absolute w-full text-xs font-bold text-center">Add image</span>
+                    <div className="absolute left-0 w-full text-center top-14">
+                        <span className="text-xs font-bold ">Add image</span>
                     </div>
                 )
             }
