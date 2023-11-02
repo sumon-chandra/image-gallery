@@ -67,7 +67,7 @@ const Gallery = () => {
 			{headerContent()}
 			<DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
 				<SortableContext items={images} strategy={rectSortingStrategy}>
-					<div className="grid grid-flow-row grid-cols-5 grid-rows-3 gap-6 mx-auto mt-4 lg:max-w-3xl">
+					<div className="grid grid-flow-row grid-cols-2 grid-rows-3 gap-6 mx-auto mt-4 lg:grid-cols-5 lg:max-w-3xl">
 						{images.map((image, index) => (
 							<SortableImage
 								key={image.id}
