@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { images as initialImages } from "../primitives/images";
-import { DndContext, DragEndEvent, TouchSensor, closestCenter, useSensor, useSensors } from "@dnd-kit/core";
+import { DndContext, DragEndEvent, MouseSensor, TouchSensor, closestCenter, useSensor, useSensors } from "@dnd-kit/core";
 import { SortableContext, rectSortingStrategy, arrayMove } from "@dnd-kit/sortable";
 import { toast } from "sonner";
 import SortableImage from "./SortableImage";
@@ -14,7 +14,8 @@ const Gallery = () => {
 	const [images, setImages] = useState<GalleryProps[]>(initialImages);
 	const [selectedImages, setSelectedImages] = useState<number[]>([]);
 	const touchSensor = useSensor(TouchSensor);
-	const sensors = useSensors(touchSensor);
+	const mouseSensor = useSensor(MouseSensor);
+	const sensors = useSensors(touchSensor, mouseSensor);
 
 	const toggledImage = (id: number) => {
 		setSelectedImages(prevSelected =>

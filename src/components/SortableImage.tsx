@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-// import Image from "./Image";
+import demoImg from "../assets/image.svg";
 
 interface SortableImageProps {
 	image: { id: number; img?: string };
@@ -11,7 +11,7 @@ interface SortableImageProps {
 }
 
 const SortableImage: FC<SortableImageProps> = ({ image, order, selectedImages, onToggle }) => {
-	const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: image.id });
+	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: image.id });
 
 	const style = {
 		transform: CSS.Transform.toString(transform),
@@ -21,7 +21,7 @@ const SortableImage: FC<SortableImageProps> = ({ image, order, selectedImages, o
 	const content = () => {
 		if (image.img) {
 			return (
-				<div className="z-30 cursor-pointer">
+				<div className={`${isDragging && "ring-4 ring-neutral-400 rounded-md shadow-md"} z-30 cursor-pointer`}>
 					<img src={image.img} alt="Product Image" className="h-full rounded-md" />
 					<div
 						className={`absolute top-0 left-0 w-full h-full transition-opacity bg-[#00000071] opacity-0 rounded-md
@@ -32,7 +32,8 @@ const SortableImage: FC<SortableImageProps> = ({ image, order, selectedImages, o
 			);
 		} else {
 			return (
-				<div className="absolute left-0 w-full text-center top-10">
+				<div className="flex flex-col items-center justify-center w-32 h-32 text-center cursor-auto">
+					<img src={demoImg} className="w-6 h-6" alt="Demo Image" />
 					<span className="text-xs font-semibold">Add image</span>
 				</div>
 			);
