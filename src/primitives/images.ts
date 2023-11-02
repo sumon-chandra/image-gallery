@@ -1,14 +1,14 @@
-import image1 from "../assets/images/image-1.webp";
-import image2 from "../assets/images/image-2.webp";
-import image3 from "../assets/images/image-3.webp";
-import image4 from "../assets/images/image-4.webp";
-import image5 from "../assets/images/image-5.webp";
-import image6 from "../assets/images/image-6.webp";
-import image7 from "../assets/images/image-7.webp";
-import image8 from "../assets/images/image-8.webp";
-import image9 from "../assets/images/image-9.webp";
-import image10 from "../assets/images/image-10.jpeg";
-import image11 from "../assets/images/image-11.jpeg";
+import image1 from "../assets/images/image-1.png";
+import image2 from "../assets/images/image-2.png";
+import image3 from "../assets/images/image-3.png";
+import image4 from "../assets/images/image-4.png";
+import image5 from "../assets/images/image-5.png";
+import image6 from "../assets/images/image-6.png";
+import image7 from "../assets/images/image-7.png";
+import image8 from "../assets/images/image-8.png";
+import image9 from "../assets/images/image-9.png";
+import image10 from "../assets/images/image-10.png";
+import image11 from "../assets/images/image-11.png";
 
 export const images = [
     {
