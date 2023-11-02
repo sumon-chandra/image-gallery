@@ -66,19 +66,7 @@ const SortableImage: FC<SortableImageProps> = ({ image, order, selectedImages, o
 			}`}
 		>
 			{checkbox()}
-			<div
-				ref={setNodeRef}
-				{...attributes}
-				{...listeners}
-				style={image.img ? style : undefined}
-				className={`border-2 flex items-center justify-center rounded-md select-none ${
-					order === 1
-						? "row-span-2 col-span-2"
-						: image.img === ""
-						? " border-4 border-gray-400 border-dotted"
-						: "row-span-1"
-				}`}
-			>
+			<div ref={setNodeRef} {...attributes} {...listeners} style={image.img ? style : undefined}>
 				{content()}
 			</div>
 		</div>

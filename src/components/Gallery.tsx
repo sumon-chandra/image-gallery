@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { images as initialImages } from "../primitives/images";
-import { DndContext, DragEndEvent, closestCenter } from "@dnd-kit/core";
+import { DndContext, DragEndEvent, TouchSensor, closestCenter, useSensor, useSensors } from "@dnd-kit/core";
 import { SortableContext, rectSortingStrategy, arrayMove } from "@dnd-kit/sortable";
 import { toast } from "sonner";
 import SortableImage from "./SortableImage";
@@ -13,6 +13,8 @@ interface GalleryProps {
 const Gallery = () => {
 	const [images, setImages] = useState<GalleryProps[]>(initialImages);
 	const [selectedImages, setSelectedImages] = useState<number[]>([]);
+	const touchSensor = useSensor(TouchSensor);
+	const sensors = useSensors(touchSensor);
 
 	const toggledImage = (id: number) => {
 		setSelectedImages(prevSelected =>
@@ -65,7 +67,7 @@ const Gallery = () => {
 	return (
 		<div className="p-5 m-5 bg-white border rounded-lg shadow lg:m-0">
 			{headerContent()}
-			<DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+			<DndContext collisionDetection={closestCenter} sensors={sensors} onDragEnd={handleDragEnd}>
 				<SortableContext items={images} strategy={rectSortingStrategy}>
 					<div className="grid grid-flow-row grid-cols-2 grid-rows-3 gap-6 mx-auto mt-4 lg:grid-cols-5 lg:max-w-3xl">
 						{images.map((image, index) => (
