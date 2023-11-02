@@ -1,27 +1,33 @@
-# React + TypeScript + Vite
+# Image Gallery with ReactJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a responsive image gallery built with **ReactJS** with **TypeScript**. It offers features like sorting images and deleting multiple images.
 
-Currently, two official plugins are available:
+## Live Demo
+You can view a live demo of this project [here](https://sumon-ollyo-gallery.vercel.app/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+To set up this project locally, follow these steps:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Clone the repository
+```bash
+git clone https://github.com/sumon-chandra/image-gallery
+cd image-gallery
 ```
+2. Install the dependencies:
+```bash
+npm install
+```
+3. Start the development server:
+```bash
+npm run dev
+```
+Open your browser and visit ***http://localhost:5173*** or anything like that to see the gallery in action.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Technologies 
+- **ReactJS**
+- **TypeScript**
+- **[Dndkit](dndkit.com)**
+- **[Sonner](https://sonner.emilkowal.ski/)**
+- **TailwindCSS**
+## Conclusion
+This React image gallery project provides a visually appealing and user-friendly way to showcase and manage images with features like reordering, deleting, and setting a feature image. Feel free to use it as a starting point for your own projects and tailor it to your specific needs.
